@@ -1,0 +1,132 @@
+
+<div class='flex flex-wrap justify-center items-center gap-y-8 gap-x-4'>
+
+  {%for movie in filtered_movies%}
+<div class="flex flex-col"> 
+        <div
+          class="flex flex-col justify-center items-center rounded-t-lg gap-y-2"
+        >
+          <p
+            class="w-[260px] h-[45px] px-2 text-center flex justify-center items-center bg-gray-800 text-yellow-500 font-bold rounded-md text-sm"
+          >
+            {{movie.rank}} - {{movie.title}} ({{movie.year}})
+          </p>
+          <a href="{%url 'movie-detail' movie.id%}"
+            ><img
+              src="{{movie.poster_img}}"
+              alt="movie-poster"
+              class="object-cover h-[380px] w-[280px]"
+          /></a>
+        </div>
+      </div>
+  {%endfor%}
+</div> 
+<div class='flex justify-center items-center text-center p-4 text-white tracking-wider font-bold'> {{movie_count}} Results</div>
+
+
+ 
+ {% comment %} <body class="flex flex-col justify-center items-center bg-red-300">
+
+    <div
+      class="w-[80%] flex-wrap flex bg-red-400 justify-center items-center py-4 gap-y-5 gap-x-8 mt-4" id="movie-results">
+
+      {%if movie_count == 0%}
+      <div>No results found</div>
+      {%endif%} 
+      {%for movie in movies%}
+      <div class="flex flex-col"> 
+        <div
+          class="flex flex-col justify-center items-center bg-white rounded-t-lg"
+        >
+          <p
+            class="w-[300px] h-[60px] text-center flex justify-center items-center"
+          >
+            {{movie.rank}} - {{movie.title}} ({{movie.year}})
+          </p>
+          <a href="{%url 'movie-detail' movie.id%}"
+            ><img
+              src="{{movie.poster_img}}"
+              alt="movie-poster"
+              class="object-cover h-[440px] w-[300px]"
+          /></a>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+    {{movie_count}}
+
+  </body>  {% endcomment %}
+
+     {% comment %} <div class="pagination py-4">
+      <div class="flex flex-col items-center">
+        <span class="text-sm text-gray-700 dark:text-gray-400">
+          Showing
+          <span class="font-semibold text-gray-900 dark:text-white"
+            >{{ page_obj.number }}
+          </span>
+          of
+          <span class="font-semibold text-gray-900 dark:text-white"
+            >{{ page_obj.paginator.num_pages }}</span
+          >
+          pages. {{movie_count}} results
+        </span>
+        <span class="step-links">
+          <div class="inline-flex mt-2 xs:mt-0">
+            {% if page_obj.has_previous %}
+            <a class="pr-2" href="?page=1">&laquo; first</a>
+            <a
+              href="?page={{ page_obj.previous_page_number }}"
+              class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              <svg
+                class="w-3.5 h-3.5 mr-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 5H1m0 0 4 4M1 5l4-4"
+                />
+              </svg>
+              Prev
+            </a>
+            {% endif %} {% if page_obj.has_next %}
+
+            <a
+              href="?page={{ page_obj.next_page_number }}"
+              class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              Next
+              <svg
+                class="w-3.5 h-3.5 ml-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </a>
+            <a class="pl-2" href="?page={{ page_obj.paginator.num_pages }}"
+              >last &raquo;</a
+            >
+            {% endif %}
+          </div>
+        </span>
+      </div>
+    </div>  {% endcomment %}
+
+
+
+

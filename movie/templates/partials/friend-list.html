@@ -1,0 +1,8 @@
+<section class='flex flex-col justify-center items-center p-4'>
+<div class='text-lg font-bold underline'>Friends</div>
+<div class='flex flex-col gap-y-2 justify-center items-center'>
+{%for friend in friend_list%}
+<a href="{%url 'profile' friend.user.id%}">{{friend.user.first_name}} {{friend.user.last_name}}</a>
+{%endfor%}
+</div>
+</section>

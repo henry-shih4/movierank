@@ -1,0 +1,9 @@
+
+
+    <button id='favorite-btn' hx-swap='beforeend' hx-swap-oob="true" hx-post="{%url 'favorite-remove' movie.id %}" class='smooth flex justify-center items-center gap-x-3'>
+        <img src='/static/images/icons/full-heart.svg'/><p class='text-sm flex justify-center items-center'>Remove from Favorites</p></a>
+    </button>
+
+     <section hx-swap-oob='true' hx-swap='innerHTML' id='fav-messages'>
+        {%include 'partials/toast.html'%}
+    </section>  

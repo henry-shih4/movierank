@@ -1,0 +1,96 @@
+{%extends 'movie/base.html'%} {% load humanize %} {%block title%}Movie List - {{movie.title}} {%endblock%} 
+
+  {%block content%}
+
+<main class='flex flex-col justify-center items-center gap-y-2 max-w-[1200px] m-auto  md:flex-row'>
+
+<div class='flex justify-center items-center flex-col gap-y-4 py-4 w-[85%] md:w-[50%] '>
+<div class='text-xl font-bold text-yellow-400 tracking-wider text-center flex flex-col gap-y-2'> 
+  <div class='text-2xl'>{{movie.title}} ({{movie.year}})</div>
+  <div class='w-full h-[2px] bg-white'></div>
+  <div>Rank: {{movie.rank}} ({{movie.rating}}) </div>
+</div>
+  
+{% comment %} <div>Release Date: {{movie.release_date}}</div> {% endcomment %}
+<div><img src="{{movie.poster_img}}" alt="movie-poster" width="260" /></div>
+<div class='flex flex-col justify-center items-center'> <span class='font-bold text-md text-yellow-400 tracking-wider'>Genre(s)</span> <span class='text-white tracking-wider'>{{movie.genre_list}}</span></div>
+<div class='flex flex-col justify-center items-center '> <span class='font-bold text-md text-yellow-400 tracking-wider'>Cast</span> <p class='w-[280px] truncate text-white' data-tooltip-target="tooltip-default-{{movie.id}}" ><span class='text-white tracking-wider'>{{movie.cast_list}}</span></p></div>
+<div id="tooltip-default-{{movie.id}}" role="tooltip" class="text-center absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+    {{movie.cast_list}}
+    <div class="tooltip-arrow" data-popper-arrow></div>
+</div>
+<div class='flex flex-col justify-center items-center'> <span class='font-bold text-md text-yellow-400 tracking-wider'>Director</span> <span class='text-white tracking-wider'>{{movie.director}}</span></div>
+
+
+</div>
+
+<div class='flex flex-col  gap-y-2 py-2 w-[50%]'>
+ <div class='flex flex-col justify-center items-center border-2 border-gray-200 rounded-md m-4 p-3'> <span class='font-bold text-xl tracking-wider text-yellow-400 pb-2' >Summary</span><p class=' text-center text-white'>{{movie.description}}</p></div>
+
+
+  <div class='flex  justify-center items-center border-2 border-gray-200 rounded-md m-4 p-3'> 
+
+    <div class='flex flex-col w-[50%] gap-y-2'>
+          <div class='flex justify-center items-center'>
+      <div class='flex flex-col justify-center items-center'>
+        <span class='font-bold text-md text-yellow-400 tracking-wider '>Duration </span>
+        <span class='text-white tracking-wider'>{{movie.runtime}}</span></div>
+  </div>
+      
+<div class='flex flex-col justify-center items-center'><span class='font-bold text-md text-yellow-400 tracking-wider'>Metascore </span><span class='text-white tracking-wider'>{{movie.metascore}}</span></div>
+
+<div class='flex flex-col justify-center items-center'><span class='font-bold text-md text-yellow-400 tracking-wider'>Country </span><span class='text-white tracking-wider'>{{movie.country_of_origin}}</span></div>
+
+    </div>
+
+<div class='flex flex-col w-[50%] gap-y-2'>
+<div class='flex flex-col justify-center items-center'><span class='font-bold text-md text-yellow-400 tracking-wider'>Earnings</span><div class='gap-x-3 flex'><span class='text-white tracking-wider'>N. America ${{movie.us_canada_gross|intword}}</span></div>
+
+<div class='gap-x-3 flex'><span class='text-white tracking-wider'>World ${{movie.worldwide_gross|intword}}</span></div></div>
+
+
+<div class='flex flex-col justify-center items-center'>
+  <span class='font-bold text-md text-yellow-400 tracking-wider'>Oscars</span>
+  <div class='text-white tracking-wider'>Nominations {{movie.oscar_nominations}}</div>
+
+<div class='text-white tracking-wider'>Wins {{movie.oscar_wins}}</div>
+</div>
+</div>
+
+
+</div>
+
+      <div class='flex justify-center items-center flex-col gap-y-2 py-1 border-2 border-gray-200 rounded-md text-white'>
+    
+    {%if not favorited%}
+      
+{%include 'partials/remove-favorite.html'%}
+      {%else%}
+      
+{%include 'partials/add-favorite.html'%}
+      {%endif%} 
+
+    {%if not in_watchlist%}
+      
+{%include 'partials/remove-watchlist.html'%}
+      {%else%}
+      
+{%include 'partials/add-watchlist.html'%}
+      {%endif%} 
+      
+      </div>
+</div>
+</div>
+</div>
+</main>
+
+      {%endblock%}
+      </div>
+
+
+<p class='max-w-[200px] truncate text-center' data-tooltip-target="tooltip-default-{{movie.id}}">
+    {{movie.title}}</p>
+<div id="tooltip-default-{{movie.id}}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+    {{movie.title}}
+    <div class="tooltip-arrow" data-popper-arrow></div>
+</div>

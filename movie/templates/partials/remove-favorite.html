@@ -1,0 +1,7 @@
+   <button id='favorite-btn'  hx-post="{%url 'favorite-add' movie.id %}" hx-swap='beforeend' hx-swap-oob="true" class='smooth flex justify-center items-center gap-x-3'>
+          <img src='/static/images/icons/heart.svg'/><p class='text-sm flex justify-center items-center'>Add to Favorites</p>
+    </button>
+
+      <section hx-swap-oob='true' hx-swap='innerHTML' id='fav-messages'>
+        {%include 'partials/toast.html'%}
+    </section> 

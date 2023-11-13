@@ -1,0 +1,26 @@
+{%extends 'movie/base.html'%} 
+{%block title%}Sign Up{%endblock%} 
+{%load tailwind_filters %} 
+{%load widget_tweaks%}
+{%block content%}
+
+<div class="p-8 bg-white">
+  <form method="post" >
+    {% csrf_token %}
+      {{form|crispy}}
+     {% comment %} {%render_field form.email placeholder='email'%}
+     {{form.first_name}}
+     {{form.last_name}}
+     {{form.password1}}
+     {{form.password2}} {% endcomment %}
+    <button
+      class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      type="submit"
+    >
+      Sign Up
+    </button>
+    <p class='py-2'>Have an account? Log in <a href='/login' class='underline font-bold py-2'>Here</a></p>
+  </form>
+</div>
+
+{%endblock%}

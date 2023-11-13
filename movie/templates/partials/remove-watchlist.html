@@ -1,0 +1,7 @@
+   <button id='watchlist-btn' hx-post="{%url 'watchlist-add' movie.id %}"  hx-swap-oob="true" class='smooth flex justify-center items-center gap-x-3'>
+          <img src='/static/images/icons/eye-open.svg'/><p class='text-sm flex justify-center items-center'>Add to Watchlist</p>
+    </button>
+
+     <section hx-swap-oob='true' hx-swap='innerHTML' id='watch-messages'>
+        {%include 'partials/toast.html'%}
+    </section> 

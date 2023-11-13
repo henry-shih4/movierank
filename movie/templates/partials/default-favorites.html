@@ -1,0 +1,62 @@
+
+
+<section class="pt-14 flex gap-y-4 w-[75%] flex-wrap justify-center"  >
+
+        {% for movie in movies %}
+        <div class='text-white px-2 w-[200px]'>
+           
+            <li class="flex flex-col justify-between items-center" hx-target='film-list'>
+                <a class='text-white max-w-[200px] truncate text-center' hx-get="{% url 'movie-detail' movie.movie.id %}" data-tooltip-target="tooltip-default-{{movie.movie.id}}" >
+                    #{{movie.order}} {{ movie.movie.title }}
+                </a>
+                <a href="{%url 'movie-detail' movie.movie.id%}"
+          ><img
+            src="{{movie.movie.poster_img}}"
+            alt="movie-poster"
+            class="object-cover h-[240px] min-w-[160px]"
+        /></a>
+            </li>
+            <div
+        id="tooltip-default-{{movie.movie.id}}"
+        role="tooltip"
+        class="text-center absolute z-10 invisible px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+      > 
+        {{movie.movie.title}} 
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+        </div>
+    {% endfor %}
+ {% comment %} {%for movie in movies%}
+ <input type="hidden" name="film_order" value="{{movie.id}}" />
+ 
+  <div class="relative" > 
+    <div
+      class="flex flex-col justify-center items-center"
+    >
+      <li
+        class="max-w-[200px] truncate text-center"
+        data-tooltip-target="tooltip-default-{{movie.movie.id}}"
+        hx-target='film-list'
+      >
+        {{movie.movie.title}} {{movie.order}}
+      </li>
+      <div
+        id="tooltip-default-{{movie.movie.id}}"
+        role="tooltip"
+        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+      > 
+        {{movie.movie.title}} 
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+      <div >
+        <a href="{%url 'movie-detail' movie.movie.id%}"
+          ><img
+            src="{{movie.movie.poster_img}}"
+            alt="movie-poster"
+            class="object-cover h-[340px] min-w-[200px]"
+        /></a>
+      </div>
+    </div>
+  </div>
+{%endfor%}  {% endcomment %}
+    </section>

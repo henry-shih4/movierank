@@ -1,0 +1,100 @@
+{% comment %} 
+{%if is_owner%}
+{{is_owner}} {% endcomment %}
+  <div class='pt-4 font-bold text-lg text-white tracking-widest'>{{request.user.first_name}}'s Favorites</div>
+
+<form class="sortable pt-14 flex gap-y-4 w-[75%] flex-wrap justify-center" hx-trigger="end" 
+hx-post="{% url 'sort' %}" hx-target="#film-list" >
+ {%csrf_token%}
+        <div class="htmx-indicator absolute">Updating...</div>
+        {% for movie in movies %}
+        <div class='relative px-2 text-white'>
+            <input type="hidden" name="film_order" value="{{ movie.id }}"/>
+            <li class="flex flex-col justify-between items-center" hx-target='film-list'>
+                <a class=' max-w-[200px] truncate text-center' hx-get="{% url 'movie-detail' movie.movie.id %}" data-tooltip-target="tooltip-default-{{movie.movie.id}}" >
+                    #{{movie.order}} {{ movie.movie.title }}
+                </a>
+                <a href="{%url 'movie-detail' movie.movie.id%}"
+          ><img
+            src="{{movie.movie.poster_img}}"
+            alt="movie-poster"
+             class="object-cover h-[240px] min-w-[160px]"
+        /></a>
+            </li>
+            <div
+        id="tooltip-default-{{movie.movie.id}}"
+        role="tooltip"
+        class="text-center absolute z-10 invisible px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+      > 
+        {{movie.movie.title}} 
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+        </div>
+    {% endfor %}
+ {% comment %} {%for movie in movies%}
+ <input type="hidden" name="film_order" value="{{movie.id}}" />
+ 
+  <div class="relative" > 
+    <div
+      class="flex flex-col justify-center items-center"
+    >
+      <li
+        class="max-w-[200px] truncate text-center"
+        data-tooltip-target="tooltip-default-{{movie.movie.id}}"
+        hx-target='film-list'
+      >
+        {{movie.movie.title}} {{movie.order}}
+      </li>
+      <div
+        id="tooltip-default-{{movie.movie.id}}"
+        role="tooltip"
+        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+      > 
+        {{movie.movie.title}} 
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+      <div >
+        <a href="{%url 'movie-detail' movie.movie.id%}"
+          ><img
+            src="{{movie.movie.poster_img}}"
+            alt="movie-poster"
+            class="object-cover h-[340px] min-w-[200px]"
+        /></a>
+      </div>
+    </div>
+  </div>
+{%endfor%}  {% endcomment %}
+    </form>
+ {% comment %} {%else%}  {% endcomment %}
+
+{% comment %} <p>not owner</p>
+ <section class="pt-14 flex justify-center items-center gap-x-3 w-[75%] flex-wrap" >
+        {% for movie in movies %}
+        <div class='relative'>
+            <input type="hidden" name="film_order" value="{{ movie.id }}"/>
+            <li class="flex flex-col justify-between items-center" hx-target='film-list'>
+                <a class=' max-w-[200px] truncate text-center' hx-get="{% url 'movie-detail' movie.movie.id %}" data-tooltip-target="tooltip-default-{{movie.movie.id}}" >
+                    #{{movie.order}} {{ movie.movie.title }}
+                </a>
+                <a href="{%url 'movie-detail' movie.movie.id%}"
+          ><img
+            src="{{movie.movie.poster_img}}"
+            alt="movie-poster"
+            class="object-cover h-[340px] min-w-[200px]"
+        /></a>
+            </li>
+            <div
+        id="tooltip-default-{{movie.movie.id}}"
+        role="tooltip"
+        class="text-center absolute z-10 invisible px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+      > 
+        {{movie.movie.title}} 
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+        </div>
+    {% endfor %}
+      </section>
+{%endif%}  {% endcomment %}
+
+
+ 

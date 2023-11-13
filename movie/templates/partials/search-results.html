@@ -1,0 +1,10 @@
+
+{%if results and results != ''%}
+
+{%for user in results%}
+<a href="{%url 'profile' user.id%}" class='p-1'>{{user.email}}</a>
+{%endfor%}
+
+{%else%}
+
+{%endif%}

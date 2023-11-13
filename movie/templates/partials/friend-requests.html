@@ -1,0 +1,17 @@
+<div>
+    <div class='text-lg font-bold underline'>Friend Requests</div>
+{%if not friend_request_count  %}
+<div class='flex justify-center items-center'>No requests.</div>
+{%else%}
+    <div>
+{%for friend_request in friend_requests%}
+
+<div class='flex gap-x-4'>
+    <div>{{friend_request.from_user.email}}</div>
+<a href="{%url 'accept-friend-request' friend_request.id%}">Accept</a>
+<a href="">Decline</a>
+</div>
+{%endfor%}
+</div>
+{%endif%}
+</div>

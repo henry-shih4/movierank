@@ -1,0 +1,9 @@
+{%extends 'movie/base.html' %} 
+  {%block title%}Home Page {%endblock%} 
+  {% block content %}
+<div class="w-full text-center p-4">
+  <a class="p-2 bg-yellow-400 rounded-md" href="{%url 'movie-list' %}"
+    >See Movies</a
+  >
+</div>
+{% endblock content %}

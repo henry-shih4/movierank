@@ -1,0 +1,13 @@
+ {%extends 'movie/base.html' %} {%block title%}{{user_profile.first_name}}'s WatchList{%endblock%} {%block content%}
+ <section id='film-list' class='flex flex-col justify-center items-center'>
+
+  {%if is_owner%}
+  {%include 'partials/watch-list-partial.html'%}
+  {%else%}
+  <div class='pt-4 font-bold text-lg'>{{user_profile.first_name}}'s Watch List</div>
+  {%include 'partials/default-favorites.html'%}
+  {%endif%}
+</section>
+
+{%endblock%} 
+

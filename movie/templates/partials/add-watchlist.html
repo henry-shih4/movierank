@@ -1,0 +1,7 @@
+    <button id='watchlist-btn'  hx-swap-oob="true" hx-post="{%url 'watchlist-remove' movie.id %}" class='smooth flex justify-center items-center gap-x-3'>
+        <img src='/static/images/icons/eye-closed.svg'/><p class='text-sm flex justify-center items-center'>Remove from Watchlist</p></a>
+    </button>
+
+   <section hx-swap-oob='true' hx-swap='innerHTML' id='watch-messages'>
+        {%include 'partials/toast.html'%}
+    </section>
