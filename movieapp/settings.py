@@ -96,7 +96,8 @@ DATABASES = {
         'NAME': 'movies',
         'USER':'postgres',
         'PASSWORD': 'Nalamala!!1',
-        'HOST':'localhost'
+        'HOST':'localhost', 
+        'PORT':'5432',
     }
 }
 
