@@ -108,7 +108,7 @@ else:
         'NAME': 'newdb',
         'USER':'newuser',
         'PASSWORD': 'newpassword',
-        'HOST':'', 
+        'HOST':'localhost', 
     }
 }
 
