@@ -27,7 +27,9 @@
     >
       <div class="flex w-[90%] justify-between items-center">
         <div>
-          <a class="text-white text-xl tracking-wider px-4 py-2 rounded-md" href="{%url 'movie-list'%}"><img src='/static/images/icons/movie-icon.svg' class='hover:scale-110'/></a>
+          <a class="text-white text-xl tracking-wider px-4 py-2 rounded-md" href="{%url 'movie-list'%}">
+            {% load static %}
+            <img src="{% static 'images/icons/movie-icon.svg' %}"  class='hover:scale-110'/></a>
         </div>
         <div class="text-yellow-400 p-4 text-3xl tracking-wider w-[50%] text-center uppercase tracking-widest font-bold ">
           MovieRank
