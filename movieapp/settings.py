@@ -90,17 +90,27 @@ WSGI_APPLICATION = 'movieapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+if DEBUG == False:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'movies',
+            'USER':'postgres',
+            'PASSWORD': 'Nalamala!!1',
+            'HOST':'localhost', 
+            'PORT':'5432',
+        }
+    }
+else:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'movies',
-        'USER':'postgres',
-        'PASSWORD': 'Nalamala!!1',
-        'HOST':'localhost', 
-        'PORT':'5432',
+        'NAME': 'newdb',
+        'USER':'newuser',
+        'PASSWORD': 'newpassword',
+        'HOST':'', 
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
