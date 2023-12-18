@@ -107,7 +107,7 @@ else:
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'newdb',
         'USER':'newuser',
-        'PASSWORD': 'newpassword',
+        'PASSWORD': 'password',
         'HOST':'', 
     }
 }
