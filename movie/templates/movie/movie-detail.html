@@ -24,43 +24,9 @@
 
 </div>
 
-<div class='flex flex-col  gap-y-2 py-2 w-[50%]'>
- <div class='flex flex-col justify-center items-center border-2 border-gray-200 rounded-md m-4 p-3'> <span class='font-bold text-xl tracking-wider text-yellow-400 pb-2' >Summary</span><p class=' text-center text-white'>{{movie.description}}</p></div>
+<div class='flex flex-col justify-center items-center gap-y-2 py-2 w-[85%] md:w-[50%]'>
 
-
-  <div class='flex  justify-center items-center border-2 border-gray-200 rounded-md m-4 p-3'> 
-
-    <div class='flex flex-col w-[50%] gap-y-2'>
-          <div class='flex justify-center items-center'>
-      <div class='flex flex-col justify-center items-center'>
-        <span class='font-bold text-md text-yellow-400 tracking-wider '>Duration </span>
-        <span class='text-white tracking-wider'>{{movie.runtime}}</span></div>
-  </div>
-      
-<div class='flex flex-col justify-center items-center'><span class='font-bold text-md text-yellow-400 tracking-wider'>Metascore </span><span class='text-white tracking-wider'>{{movie.metascore}}</span></div>
-
-<div class='flex flex-col justify-center items-center'><span class='font-bold text-md text-yellow-400 tracking-wider'>Country </span><span class='text-white tracking-wider'>{{movie.country_of_origin}}</span></div>
-
-    </div>
-
-<div class='flex flex-col w-[50%] gap-y-2'>
-<div class='flex flex-col justify-center items-center'><span class='font-bold text-md text-yellow-400 tracking-wider'>Earnings</span><div class='gap-x-3 flex'><span class='text-white tracking-wider'>N. America ${{movie.us_canada_gross|intword}}</span></div>
-
-<div class='gap-x-3 flex'><span class='text-white tracking-wider'>World ${{movie.worldwide_gross|intword}}</span></div></div>
-
-
-<div class='flex flex-col justify-center items-center'>
-  <span class='font-bold text-md text-yellow-400 tracking-wider'>Oscars</span>
-  <div class='text-white tracking-wider'>Nominations {{movie.oscar_nominations}}</div>
-
-<div class='text-white tracking-wider'>Wins {{movie.oscar_wins}}</div>
-</div>
-</div>
-
-
-</div>
-
-      <div class='flex justify-center items-center flex-col gap-y-2 py-1 border-2 border-gray-200 rounded-md text-white'>
+            <div class='w-[50%] p-3 m-4 flex justify-center items-center flex-col gap-y-2 py-1 border-2 border-gray-200 rounded-md text-white '>
     
     {%if not favorited%}
       
@@ -79,6 +45,43 @@
       {%endif%} 
       
       </div>
+
+ <div class='flex flex-col justify-center items-center border-2 border-gray-200 rounded-md m-4 p-3'> <span class='font-bold text-xl tracking-wider text-yellow-400 pb-2' >Summary</span><p class=' text-center text-white'>{{movie.description}}</p></div>
+
+
+  <div class='flex  flex-col md:flex-row justify-center items-center border-2 border-gray-200 rounded-md m-4 p-3'> 
+
+    <div class='flex flex-col w-[50%] gap-y-2'>
+          <div class='flex justify-center items-center'>
+      <div class='flex flex-col justify-center items-center'>
+        <span class='font-bold text-md text-yellow-400 tracking-wider '>Duration </span>
+        <span class='text-white tracking-wider'>{{movie.runtime}}</span></div>
+  </div>
+      
+<div class='flex flex-col justify-center items-center'><span class='font-bold text-md text-yellow-400 tracking-wider'>Metascore </span><span class='text-white tracking-wider'>{{movie.metascore}}</span></div>
+
+<div class='flex flex-col justify-center items-center'><span class='font-bold text-md text-yellow-400 tracking-wider'>Country </span><span class='text-white tracking-wider'>{{movie.country_of_origin}}</span></div>
+
+    </div>
+
+<div class='flex flex-col w-[50%] gap-y-2 text-center'>
+<div class='flex flex-col justify-center items-center'><span class='font-bold text-md text-yellow-400 tracking-wider'>Earnings</span><div class='gap-x-3 flex'><span class='text-white tracking-wider '>N. America: ${{movie.us_canada_gross|intword}}</span></div>
+
+<div class='gap-x-3 flex'><span class='text-white tracking-wider'>World: ${{movie.worldwide_gross|intword}}</span></div></div>
+
+
+<div class='flex flex-col justify-center items-center'>
+  <span class='font-bold text-md text-yellow-400 tracking-wider'>Oscars</span>
+  <div class='text-white tracking-wider'>Nominations: {{movie.oscar_nominations}}</div>
+
+<div class='text-white tracking-wider'>Wins: {{movie.oscar_wins}}</div>
+</div>
+</div>
+
+
+</div>
+
+
 </div>
 </div>
 </div>
