@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.urls import path
+from django.shortcuts import redirect
 from .views import MovieList, MovieDetail, sign_up, UserProfile, favorite_add, favorite_remove, favorite_list, watchlist_add, watchlist_remove, watch_list, sort, sortWatchList, SearchUsers, SearchMovies,send_friend_request, accept_friend_request, remove_friend
 
 urlpatterns = [
+    path('',  lambda req: redirect('movie-list')),
 path('movie-list', MovieList, name='movie-list'),
 path('movie-list/<int:pk>', MovieDetail, name='movie-detail'),
 path('search-users', SearchUsers, name='search-users'),
