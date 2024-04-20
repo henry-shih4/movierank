@@ -30,7 +30,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*', '159.223.188.83']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*', 'movierank.cc', 'www.movierank.cc']
 
 
 # Application definition
